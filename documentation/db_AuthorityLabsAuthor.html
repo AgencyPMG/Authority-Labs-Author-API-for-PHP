@@ -1,0 +1,932 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DocBlox Documentation</title><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.tools.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">AuthorityLabsAuthor.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul>
+<li><a href="#%5CAuthorityLabsAuthor">\AuthorityLabsAuthor</a></li>
+<li><a href="#%5CAuthorityLabsAuthorException">\AuthorityLabsAuthorException</a></li>
+</ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><div id="file-description">
+<p xmlns:dbx="http://docblox-project.org/xsl/functions" class="short-description">Authority Labs Author API client interface.</p>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="long-description"></div>
+</div>
+<dl class="file-info">
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="mailto:seo@pmg.co">PMG, Chris Alvares</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Category</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Services
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">License</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://creativecommons.org/licenses/MIT/">MIT</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Link</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="https://github.com/kressaty/Authority-Labs-Partner-API-PHP-Library">(pending)
+More documentation can be found at https://docs.google.com/View?id=dfjjgtqz_34f4kkw6jk</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Package</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Authority Labs Partner API PHP Library
+         
+    </dd>
+</dl>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\AuthorityLabsAuthor" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\AuthorityLabsAuthor<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Authority Labs Partner API PHP Library</small><p class="short-description">Authority Labs Author API client interface.</p>
+<div class="long-description"></div>
+<dl class="class-info">
+<dt>Author</dt>
+<dd>
+<a href="mailto:seo@pmg.co">PMG, Chris Alvares</a>
+         
+    </dd>
+<dt>Category</dt>
+<dd>Services
+         
+    </dd>
+<dt>License</dt>
+<dd>
+<a href="http://creativecommons.org/licenses/MIT/">MIT</a>
+         
+    </dd>
+<dt>Link</dt>
+<dd>
+<a href="https://github.com/kressaty/Authority-Labs-Partner-API-PHP-Library">(pending)
+More documentation can be found at https://docs.google.com/View?id=dfjjgtqz_34f4kkw6jk</a>
+         
+    </dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\AuthorityLabsAuthor::$apikey" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$apikey</span>= ''8d20db9c9ee4559374bbd85cdb91f2e5376f20f1''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>'8d20db9c9ee4559374bbd85cdb91f2e5376f20f1'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::$password" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$password</span>= ''sttools?''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>'sttools?'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::$subdomain" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$subdomain</span>= ''tools''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>'tools'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\AuthorityLabsAuthor::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+           $apikey
+              =
+              null,  $password
+              =
+              null,  $subdomain
+              =
+              null
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$apikey</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$password</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$subdomain</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::buildBaseURL()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">buildBaseURL</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::createDomain()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">createDomain</span><span class="nb-faded-text">(
+          string $domain_name, string $locale
+              =
+              null
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Add a new domain to your account</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_name</th>
+<td>string</td>
+<td><em><p>Name of Domain</p></em></td>
+</tr>
+<tr>
+<th>$locale</th>
+<td>string</td>
+<td><em><p>A combination of language/country_code</p>
+</em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::createKeyword()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">createKeyword</span><span class="nb-faded-text">(
+          string $domain_id, string $keyword
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Same call as @see creativeMultipleKeywords, except with only one keyword</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$keyword</th>
+<td>string</td>
+<td><em><p>A keyword to add to the domain</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::createMultipleKeywords()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">createMultipleKeywords</span><span class="nb-faded-text">(
+          string $domain_id, array $keywords
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Add multiple keywords</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$keywords</th>
+<td>array</td>
+<td><em><p>An array of keywords to add to the domain</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::deleteDomain()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">deleteDomain</span><span class="nb-faded-text">(
+          string $domain_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To delete a domain</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::deleteKeyword()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">deleteKeyword</span><span class="nb-faded-text">(
+          string $domain_id, string $keyword_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To delete a single keyword</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$keyword_id</th>
+<td>string</td>
+<td><em><p>ID of the keyword</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getAccountLimit()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getAccountLimit</span><span class="nb-faded-text">(
+          string $account_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Get keyword and domain limit data for your account</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$account_id</th>
+<td>string</td>
+<td><em><p>The Authority Labs AccountID</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getAllRankResultsForKeyword()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getAllRankResultsForKeyword</span><span class="nb-faded-text">(
+          string $domain_id, string $keyword_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get a keyword's previous rank results in each engine</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$keyword_id</th>
+<td>string</td>
+<td><em><p>ID of the keyword</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getAuthorityLabsData()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">getAuthorityLabsData</span><span class="nb-faded-text">(
+           $path,  $method
+              =
+              'GET',  $params
+              =
+              array()
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$path</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$method</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$params</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getCurrentRankForKeyword()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getCurrentRankForKeyword</span><span class="nb-faded-text">(
+          string $domain_id, string $keyword_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get a keyword and it's current rank in each engine</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$keyword_id</th>
+<td>string</td>
+<td><em><p>ID of the keyword</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getDomain()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getDomain</span><span class="nb-faded-text">(
+          string $domain_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get a the name and suggested keywords for your watched domains,</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getDomainRankAverages()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getDomainRankAverages</span><span class="nb-faded-text">(
+          string $domain_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get rank averages for a watched domain</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getHistoricalRankForKeyword()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getHistoricalRankForKeyword</span><span class="nb-faded-text">(
+          string $domain_id, string $keyword_id, \date $startdate, \date $enddate
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get a list of all domainless keywords</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$keyword_id</th>
+<td>string</td>
+<td><em><p>ID of the keyword</p></em></td>
+</tr>
+<tr>
+<th>$startdate</th>
+<td>\date</td>
+<td><em><p>start date in YYYY-MM-DD format</p>
+</em></td>
+</tr>
+<tr>
+<th>$enddate</th>
+<td>\date</td>
+<td><em><p>end date in YYYY-MM-DD format</p>
+</em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getIndexedPageCount()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getIndexedPageCount</span><span class="nb-faded-text">(
+          string $domain_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get the number of indexed pages in each search engine</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getKeyword()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getKeyword</span><span class="nb-faded-text">(
+          string $keyword_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get a the name for your watched keywords</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$keyword_id</th>
+<td>string</td>
+<td><em><p>ID of the keyword</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getListOfDomains()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getListOfDomains</span><span class="nb-faded-text">(
+          array $searchParams
+              =
+              array(), \number $page
+              =
+              1
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Available Attributes:
+	id
+	account-id
+	domain-id
+	domain-name
+	created-at
+	updated-at
+	watched-keywords-count
+	locale
+	syncing-group-id</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$searchParams</th>
+<td>array</td>
+<td><em><p>A search parameter dictionary</p></em></td>
+</tr>
+<tr>
+<th>$page</th>
+<td>\number</td>
+<td><em><p>the page list, the pages come in at 50 per query</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getListOfDomainsByURL()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getListOfDomainsByURL</span><span class="nb-faded-text">(
+          string $url
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get all watched domains tied to a URL</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$url</th>
+<td>string</td>
+<td><em><p>URL to look at</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getListOfKeywords()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getListOfKeywords</span><span class="nb-faded-text">(
+          string $domain_id, array $searchParams
+              =
+              array(), \number $page
+              =
+              1
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get a list of your watched keywords for a watched domain</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$searchParams</th>
+<td>array</td>
+<td><em><p>a dictionary of search parameters</p></em></td>
+</tr>
+<tr>
+<th>$page</th>
+<td>\number</td>
+<td><em><p>a number for pagenation, each query returns a maximum of 50</p></em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>See</dt>
+<dd>\getListOfDomains
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::getTopIndexedPages()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getTopIndexedPages</span><span class="nb-faded-text">(
+          string $domain_id, string $engine
+              =
+              'google'
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">To get the top 100 indexed pages in each search engine for a domain or page</p></div>
+<div class="code-tabs">
+<div class="long-description"></div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$domain_id</th>
+<td>string</td>
+<td><em><p>ID of the domain</p></em></td>
+</tr>
+<tr>
+<th>$engine</th>
+<td>string</td>
+<td><em><p>name of the Search Engine {google|bing|yahoo}</p>
+</em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthor::parseOutput()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">parseOutput</span><span class="nb-faded-text">(
+           $output
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$output</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\AuthorityLabsAuthorException" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\AuthorityLabsAuthorException<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b></small><dl class="class-info">
+<dt>Parent(s)</dt>
+<dd><a href="http://php.net/manual/en/class.exception.php">\Exception</a></dd>
+</dl>
+<h3>Methods</h3>
+<div>
+<a id="\AuthorityLabsAuthorException::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::__toString()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__toString</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getCode()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getCode</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getFile()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getFile</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getLine()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getLine</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getMessage()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getMessage</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getPrevious()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getPrevious</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getTrace()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getTrace</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\AuthorityLabsAuthorException::getTraceAsString()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getTraceAsString</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">final</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.18.1</a>.
+    </small></body></html>

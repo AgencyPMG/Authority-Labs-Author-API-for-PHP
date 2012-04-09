@@ -4,6 +4,7 @@ API Access
 Contact sales@authoritylabs.com for Account API Access
 
 How to use
+Documentation can be found inside: documentation/db_AuthorityLabsAuthor.html
 
 After acquiring an API key from Authority labs, fill in the information inside the AuthorityLabsAuthor.php file
 
