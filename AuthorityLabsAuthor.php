@@ -7,7 +7,7 @@
  * @package  Authority Labs Partner API PHP Library
  * @author   PMG, Chris Alvares <seo@pmg.co>
  * @license  http://creativecommons.org/licenses/MIT/ MIT
- * @link     https://github.com/kressaty/Authority-Labs-Partner-API-PHP-Library (pending)
+ * @link     https://github.com/AgencyPMG/Authority-Labs-Author-API-for-PHP
  * More documentation can be found at https://docs.google.com/View?id=dfjjgtqz_34f4kkw6jk
  */
  
