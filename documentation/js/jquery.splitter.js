@@ -17,18 +17,18 @@
  * For more details see: http://methvin.com/splitter/
  *
  *
- * @example $('#MySplitter').splitter();
- * @desc Create a vertical splitter with default settings
+example $('#MySplitter').splitter();
+desc Create a vertical splitter with default settings
  *
- * @example $('#MySplitter').splitter({type: 'h', accessKey: 'M'});
- * @desc Create a horizontal splitter resizable via Alt+Shift+M
+example $('#MySplitter').splitter({type: 'h', accessKey: 'M'});
+desc Create a horizontal splitter resizable via Alt+Shift+M
  *
- * @name splitter
- * @type jQuery
- * @param Object options Options for the splitter (not required)
- * @cat Plugins/Splitter
- * @return jQuery
- * @author Dave Methvin (dave.methvin@gmail.com)
+name splitter
+type jQuery
+param Object options Options for the splitter (not required)
+cat Plugins/Splitter
+return jQuery
+author Dave Methvin (dave.methvin@gmail.com)
  */
 ;
 (function($) {

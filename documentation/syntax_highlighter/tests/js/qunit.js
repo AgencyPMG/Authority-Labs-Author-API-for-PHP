@@ -259,7 +259,7 @@ var QUnit = {
 
 	/**
 	 * Asserts true.
-	 * @example ok( "asdfasdf".length > 5, "There must be at least 5 chars" );
+	example ok( "asdfasdf".length > 5, "There must be at least 5 chars" );
 	 */
 	ok: function(a, msg) {
 		QUnit.log(a, msg);
@@ -276,11 +276,11 @@ var QUnit = {
 	 *
 	 * Prefered to ok( actual == expected, message )
 	 *
-	 * @example equal( format("Received {0} bytes.", 2), "Received 2 bytes." );
+	example equal( format("Received {0} bytes.", 2), "Received 2 bytes." );
 	 *
-	 * @param Object actual
-	 * @param Object expected
-	 * @param String message (optional)
+	param Object actual
+	param Object expected
+	param String message (optional)
 	 */
 	equal: function(actual, expected, message) {
 		push(expected == actual, actual, expected, message);
@@ -348,10 +348,10 @@ var QUnit = {
 	/**
 	 * Trigger an event on an element.
 	 *
-	 * @example triggerEvent( document.body, "click" );
+	example triggerEvent( document.body, "click" );
 	 *
-	 * @param DOMElement elem
-	 * @param String type
+	param DOMElement elem
+	param String type
 	 */
 	triggerEvent: function( elem, type, event ) {
 		if ( document.createEvent ) {
@@ -899,10 +899,10 @@ QUnit.equiv = function () {
  * Copyright (c) 2008 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
  * Licensed under BSD (http://www.opensource.org/licenses/bsd-license.php)
  * Date: 5/15/2008
- * @projectDescription Advanced and extensible data dumping for Javascript.
- * @version 1.0.0
- * @author Ariel Flesler
- * @link {http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.html}
+projectDescription Advanced and extensible data dumping for Javascript.
+version 1.0.0
+author Ariel Flesler
+link {http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.html}
  */
 QUnit.jsDump = (function() {
 	function quote( str ) {

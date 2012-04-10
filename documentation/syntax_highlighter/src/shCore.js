@@ -5,13 +5,13 @@
  * SyntaxHighlighter is donationware. If you are using it, please donate.
  * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
  *
- * @version
+version
  * 3.0.83 (July 02 2010)
  *
- * @copyright
+copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
- * @license
+license
  * Dual licensed under the MIT and GPL licenses.
  */
 //
@@ -138,8 +138,8 @@ var sh = {
 	toolbar: {
 		/**
 		 * Generates HTML markup for the toolbar.
-		 * @param {Highlighter} highlighter Highlighter instance.
-		 * @return {String} Returns HTML markup.
+		param {Highlighter} highlighter Highlighter instance.
+		return {String} Returns HTML markup.
 		 */
 		getHtml: function(highlighter)
 		{
@@ -163,10 +163,10 @@ var sh = {
 
 		/**
 		 * Generates HTML markup for a regular button in the toolbar.
-		 * @param {Highlighter} highlighter Highlighter instance.
-		 * @param {String} commandName		Command name that would be executed.
-		 * @param {String} label			Label text to display.
-		 * @return {String}					Returns HTML markup.
+		param {Highlighter} highlighter Highlighter instance.
+		param {String} commandName		Command name that would be executed.
+		param {String} label			Label text to display.
+		return {String}					Returns HTML markup.
 		 */
 		getButtonHtml: function(highlighter, commandName, label)
 		{
@@ -248,14 +248,14 @@ var sh = {
 	/**
 	 * Finds all elements on the page which should be processes by SyntaxHighlighter.
 	 *
-	 * @param {Object} globalParams		Optional parameters which override element's
+	param {Object} globalParams		Optional parameters which override element's
 	 * 									parameters. Only used if element is specified.
 	 *
-	 * @param {Object} element	Optional element to highlight. If none is
+	param {Object} element	Optional element to highlight. If none is
 	 * 							provided, all elements in the current document
 	 * 							are returned which qualify.
 	 *
-	 * @return {Array}	Returns list of <code>{ target: DOMElement, params: Object }</code> objects.
+	return {Array}	Returns list of <code>{ target: DOMElement, params: Object }</code> objects.
 	 */
 	findElements: function(globalParams, element)
 	{
@@ -292,10 +292,10 @@ var sh = {
 	 * Shorthand to highlight all elements on the page that are marked as
 	 * SyntaxHighlighter source code.
 	 *
-	 * @param {Object} globalParams		Optional parameters which override element's
+	param {Object} globalParams		Optional parameters which override element's
 	 * 									parameters. Only used if element is specified.
 	 *
-	 * @param {Object} element	Optional element to highlight. If none is
+	param {Object} element	Optional element to highlight. If none is
 	 * 							provided, all elements in the current document
 	 * 							are highlighted.
 	 */
@@ -362,7 +362,7 @@ var sh = {
 
 	/**
 	 * Main entry point for the SyntaxHighlighter.
-	 * @param {Object} params Optional params to apply to all highlighted elements.
+	param {Object} params Optional params to apply to all highlighted elements.
 	 */
 	all: function(params)
 	{
@@ -379,9 +379,9 @@ sh['highlight']		= sh.highlight;
 
 /**
  * Checks if target DOM elements has specified CSS class.
- * @param {DOMElement} target Target DOM element to check.
- * @param {String} className Name of the CSS class to check for.
- * @return {Boolean} Returns true if class name is present, false otherwise.
+param {DOMElement} target Target DOM element to check.
+param {String} className Name of the CSS class to check for.
+return {Boolean} Returns true if class name is present, false otherwise.
  */
 function hasClass(target, className)
 {
@@ -390,8 +390,8 @@ function hasClass(target, className)
 
 /**
  * Adds CSS class name to the target DOM element.
- * @param {DOMElement} target Target DOM element.
- * @param {String} className New CSS class to add.
+param {DOMElement} target Target DOM element.
+param {String} className New CSS class to add.
  */
 function addClass(target, className)
 {
@@ -401,8 +401,8 @@ function addClass(target, className)
 
 /**
  * Removes CSS class name from the target DOM element.
- * @param {DOMElement} target Target DOM element.
- * @param {String} className CSS class to remove.
+param {DOMElement} target Target DOM element.
+param {String} className CSS class to remove.
  */
 function removeClass(target, className)
 {
@@ -412,8 +412,8 @@ function removeClass(target, className)
 /**
  * Converts the source to array object. Mostly used for function arguments and
  * lists returned by getElementsByTagName() which aren't Array objects.
- * @param {List} source Source list.
- * @return {Array} Returns array.
+param {List} source Source list.
+return {Array} Returns array.
  */
 function toArray(source)
 {
@@ -427,8 +427,8 @@ function toArray(source)
 
 /**
  * Splits block of text into lines.
- * @param {String} block Block of text.
- * @return {Array} Returns array of lines.
+param {String} block Block of text.
+return {Array} Returns array of lines.
  */
 function splitLines(block)
 {
@@ -437,8 +437,8 @@ function splitLines(block)
 
 /**
  * Generates HTML ID for the highlighter.
- * @param {String} highlighterId Highlighter ID.
- * @return {String} Returns HTML ID.
+param {String} highlighterId Highlighter ID.
+return {String} Returns HTML ID.
  */
 function getHighlighterId(id)
 {
@@ -448,8 +448,8 @@ function getHighlighterId(id)
 
 /**
  * Finds Highlighter instance by ID.
- * @param {String} highlighterId Highlighter ID.
- * @return {Highlighter} Returns instance of the highlighter.
+param {String} highlighterId Highlighter ID.
+return {Highlighter} Returns instance of the highlighter.
  */
 function getHighlighterById(id)
 {
@@ -458,8 +458,8 @@ function getHighlighterById(id)
 
 /**
  * Finds highlighter's DIV container.
- * @param {String} highlighterId Highlighter ID.
- * @return {Element} Returns highlighter's DIV element.
+param {String} highlighterId Highlighter ID.
+return {Element} Returns highlighter's DIV element.
  */
 function getHighlighterDivById(id)
 {
@@ -469,7 +469,7 @@ function getHighlighterDivById(id)
 /**
  * Stores highlighter so that getHighlighterById() can do its thing. Each
  * highlighter must call this method to preserve itself.
- * @param {Highilghter} highlighter Highlighter instance.
+param {Highilghter} highlighter Highlighter instance.
  */
 function storeHighlighter(highlighter)
 {
@@ -479,10 +479,10 @@ function storeHighlighter(highlighter)
 /**
  * Looks for a child or parent node which has specified classname.
  * Equivalent to jQuery's $(container).find(".className")
- * @param {Element} target Target element.
- * @param {String} search Class name or node name to look for.
- * @param {Boolean} reverse If set to true, will go up the node tree instead of down.
- * @return {Element} Returns found child or parent element on null.
+param {Element} target Target element.
+param {String} search Class name or node name to look for.
+param {Boolean} reverse If set to true, will go up the node tree instead of down.
+return {Element} Returns found child or parent element on null.
  */
 function findElement(target, search, reverse /* optional */)
 {
@@ -513,9 +513,9 @@ function findElement(target, search, reverse /* optional */)
 /**
  * Looks for a parent node which has specified classname.
  * This is an alias to <code>findElement(container, className, true)</code>.
- * @param {Element} target Target element.
- * @param {String} className Class name to look for.
- * @return {Element} Returns found parent element on null.
+param {Element} target Target element.
+param {String} className Class name to look for.
+return {Element} Returns found parent element on null.
  */
 function findParentElement(target, className)
 {
@@ -524,10 +524,10 @@ function findParentElement(target, className)
 
 /**
  * Finds an index of element in the array.
- * @ignore
- * @param {Object} searchElement
- * @param {Number} fromIndex
- * @return {Number} Returns index of element if found; -1 otherwise.
+ignore
+param {Object} searchElement
+param {Number} fromIndex
+return {Number} Returns index of element if found; -1 otherwise.
  */
 function indexOf(array, searchElement, fromIndex)
 {
@@ -551,9 +551,9 @@ function guid(prefix)
 /**
  * Merges two objects. Values from obj2 override values in obj1.
  * Function is NOT recursive and works only for one dimensional objects.
- * @param {Object} obj1 First object.
- * @param {Object} obj2 Second object.
- * @return {Object} Returns combination of both objects.
+param {Object} obj1 First object.
+param {Object} obj2 Second object.
+return {Object} Returns combination of both objects.
  */
 function merge(obj1, obj2)
 {
@@ -570,8 +570,8 @@ function merge(obj1, obj2)
 
 /**
  * Attempts to convert string to boolean.
- * @param {String} value Input string.
- * @return {Boolean} Returns true if input was "true", false if input was "false" and value otherwise.
+param {String} value Input string.
+return {Boolean} Returns true if input was "true", false if input was "false" and value otherwise.
  */
 function toBoolean(value)
 {
@@ -581,12 +581,12 @@ function toBoolean(value)
 
 /**
  * Opens up a centered popup window.
- * @param {String} url		URL to open in the window.
- * @param {String} name		Popup name.
- * @param {int} width		Popup width.
- * @param {int} height		Popup height.
- * @param {String} options	window.open() options.
- * @return {Window}			Returns window instance.
+param {String} url		URL to open in the window.
+param {String} name		Popup name.
+param {int} width		Popup width.
+param {int} height		Popup height.
+param {String} options	window.open() options.
+return {Window}			Returns window instance.
  */
 function popup(url, name, width, height, options)
 {
@@ -608,9 +608,9 @@ function popup(url, name, width, height, options)
 
 /**
  * Adds event handler to the target object.
- * @param {Object} obj		Target object.
- * @param {String} type		Name of the event.
- * @param {Function} func	Handling function.
+param {Object} obj		Target object.
+param {String} type		Name of the event.
+param {Function} func	Handling function.
  */
 function attachEvent(obj, type, func, scope)
 {
@@ -642,7 +642,7 @@ function attachEvent(obj, type, func, scope)
 
 /**
  * Displays an alert.
- * @param {String} str String to display.
+param {String} str String to display.
  */
 function alert(str)
 {
@@ -652,9 +652,9 @@ function alert(str)
 /**
  * Finds a brush by its alias.
  *
- * @param {String} alias		Brush alias.
- * @param {Boolean} showAlert	Suppresses the alert if false.
- * @return {Brush}				Returns bursh constructor if found, null otherwise.
+param {String} alias		Brush alias.
+param {Boolean} showAlert	Suppresses the alert if false.
+return {Brush}				Returns bursh constructor if found, null otherwise.
  */
 function findBrush(alias, showAlert)
 {
@@ -696,8 +696,8 @@ function findBrush(alias, showAlert)
 
 /**
  * Executes a callback on each line and replaces each line with result from the callback.
- * @param {Object} str			Input string.
- * @param {Object} callback		Callback function taking one string argument and returning a string.
+param {Object} str			Input string.
+param {Object} callback		Callback function taking one string argument and returning a string.
  */
 function eachLine(str, callback)
 {
@@ -713,8 +713,8 @@ function eachLine(str, callback)
  * This is a special trim which only removes first and last empty lines
  * and doesn't affect valid leading space on the first line.
  *
- * @param {String} str   Input string
- * @return {String}      Returns string without empty first and last lines.
+param {String} str   Input string
+return {String}      Returns string without empty first and last lines.
  */
 function trimFirstAndLastLines(str)
 {
@@ -733,8 +733,8 @@ function trimFirstAndLastLines(str)
  * For example:
  *   name1: value; name2: [value, value]; name3: 'value'
  *
- * @param {String} str    Input string.
- * @return {Object}       Returns deserialized object.
+param {String} str    Input string.
+return {Object}       Returns deserialized object.
  */
 function parseParams(str)
 {
@@ -776,9 +776,9 @@ function parseParams(str)
 /**
  * Wraps each line of the string into <code/> tag with given style applied to it.
  *
- * @param {String} str   Input string.
- * @param {String} css   Style name to apply to the string.
- * @return {String}      Returns input string with each line surrounded by <span/> tag.
+param {String} str   Input string.
+param {String} css   Style name to apply to the string.
+return {String}      Returns input string with each line surrounded by <span/> tag.
  */
 function wrapLinesWithCode(str, css)
 {
@@ -826,9 +826,9 @@ function wrapLinesWithCode(str, css)
 /**
  * Pads number with zeros until it's length is the same as given length.
  *
- * @param {Number} number	Number to pad.
- * @param {Number} length	Max string length with.
- * @return {String}			Returns a string padded with proper amount of '0'.
+param {Number} number	Number to pad.
+param {Number} length	Max string length with.
+return {String}			Returns a string padded with proper amount of '0'.
  */
 function padNumber(number, length)
 {
@@ -843,9 +843,9 @@ function padNumber(number, length)
 /**
  * Replaces tabs with spaces.
  *
- * @param {String} code		Source code.
- * @param {Number} tabSize	Size of the tab.
- * @return {String}			Returns code with all tabs replaces by spaces.
+param {String} code		Source code.
+param {Number} tabSize	Size of the tab.
+return {String}			Returns code with all tabs replaces by spaces.
  */
 function processTabs(code, tabSize)
 {
@@ -860,9 +860,9 @@ function processTabs(code, tabSize)
 /**
  * Replaces tabs with smart spaces.
  *
- * @param {String} code    Code to fix the tabs in.
- * @param {Number} tabSize Number of spaces in a column.
- * @return {String}        Returns code with all tabs replaces with roper amount of spaces.
+param {String} code    Code to fix the tabs in.
+param {Number} tabSize Number of spaces in a column.
+return {String}        Returns code with all tabs replaces with roper amount of spaces.
  */
 function processSmartTabs(code, tabSize)
 {
@@ -928,8 +928,8 @@ function fixInputString(str)
 /**
  * Removes all white space at the begining and end of a string.
  *
- * @param {String} str   String to trim.
- * @return {String}      Returns string without leading and following white space characters.
+param {String} str   String to trim.
+return {String}      Returns string without leading and following white space characters.
  */
 function trim(str)
 {
@@ -938,8 +938,8 @@ function trim(str)
 
 /**
  * Unindents a block of text by the lowest common indent amount.
- * @param {String} str   Text to unindent.
- * @return {String}      Returns unindented text block.
+param {String} str   Text to unindent.
+return {String}      Returns unindented text block.
  */
 function unindent(str)
 {
@@ -979,9 +979,9 @@ function unindent(str)
  * Callback method for Array.sort() which sorts matches by
  * index position and then by length.
  *
- * @param {Match} m1	Left object.
- * @param {Match} m2    Right object.
- * @return {Number}     Returns -1, 0 or -1 as a comparison result.
+param {Match} m1	Left object.
+param {Match} m2    Right object.
+return {Number}     Returns -1, 0 or -1 as a comparison result.
  */
 function matchesSortCallback(m1, m2)
 {
@@ -1006,9 +1006,9 @@ function matchesSortCallback(m1, m2)
  * Executes given regular expression on provided code and returns all
  * matches that are found.
  *
- * @param {String} code    Code to execute regular expression on.
- * @param {Object} regex   Regular expression item info from <code>regexList</code> collection.
- * @return {Array}         Returns a list of Match objects.
+param {String} code    Code to execute regular expression on.
+param {Object} regex   Regular expression item info from <code>regexList</code> collection.
+return {Array}         Returns a list of Match objects.
  */
 function getMatches(code, regexInfo)
 {
@@ -1038,8 +1038,8 @@ function getMatches(code, regexInfo)
 
 /**
  * Turns all URLs in the code into <a/> tags.
- * @param {String} code Input code.
- * @return {String} Returns code with </a> tags.
+param {String} code Input code.
+return {String} Returns code with </a> tags.
  */
 function processUrls(code)
 {
@@ -1067,7 +1067,7 @@ function processUrls(code)
 
 /**
  * Finds all <SCRIPT TYPE="syntaxhighlighter" /> elementss.
- * @return {Array} Returns array of all found SyntaxHighlighter tags.
+return {Array} Returns array of all found SyntaxHighlighter tags.
  */
 function getSyntaxHighlighterScriptTags()
 {
@@ -1085,8 +1085,8 @@ function getSyntaxHighlighterScriptTags()
 /**
  * Strips <![CDATA[]]> from <SCRIPT /> content because it should be used
  * there in most cases for XHTML compliance.
- * @param {String} original	Input code.
- * @return {String} Returns code without leading <![CDATA[]]> tags.
+param {String} original	Input code.
+return {String} Returns code without leading <![CDATA[]]> tags.
  */
 function stripCData(original)
 {
@@ -1185,7 +1185,7 @@ sh.Match.prototype.toString = function()
 /**
  * Simulates HTML code with a scripting language embedded.
  *
- * @param {String} scriptBrushName Brush name of the scripting language.
+param {String} scriptBrushName Brush name of the scripting language.
  */
 sh.HtmlScript = function(scriptBrushName)
 {
@@ -1272,7 +1272,7 @@ sh.HtmlScript = function(scriptBrushName)
 
 /**
  * Main Highlither class.
- * @constructor
+constructor
  */
 sh.Highlighter = function()
 {
@@ -1282,9 +1282,9 @@ sh.Highlighter = function()
 sh.Highlighter.prototype = {
 	/**
 	 * Returns value of the parameter passed to the highlighter.
-	 * @param {String} name				Name of the parameter.
-	 * @param {Object} defaultValue		Default value.
-	 * @return {Object}					Returns found value or default value otherwise.
+	param {String} name				Name of the parameter.
+	param {Object} defaultValue		Default value.
+	return {Object}					Returns found value or default value otherwise.
 	 */
 	getParam: function(name, defaultValue)
 	{
@@ -1294,8 +1294,8 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Shortcut to document.createElement().
-	 * @param {String} name		Name of the element to create (DIV, A, etc).
-	 * @return {HTMLElement}	Returns new HTML element.
+	param {String} name		Name of the element to create (DIV, A, etc).
+	return {HTMLElement}	Returns new HTML element.
 	 */
 	create: function(name)
 	{
@@ -1305,9 +1305,9 @@ sh.Highlighter.prototype = {
 	/**
 	 * Applies all regular expression to the code and stores all found
 	 * matches in the `this.matches` array.
-	 * @param {Array} regexList		List of regular expressions.
-	 * @param {String} code			Source code.
-	 * @return {Array}				Returns list of matches.
+	param {Array} regexList		List of regular expressions.
+	param {String} code			Source code.
+	return {Array}				Returns list of matches.
 	 */
 	findMatches: function(regexList, code)
 	{
@@ -1360,7 +1360,7 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Creates an array containing integer line numbers starting from the 'first-line' param.
-	 * @return {Array} Returns array of integers.
+	return {Array} Returns array of integers.
 	 */
 	figureOutLineNumbers: function(code)
 	{
@@ -1391,9 +1391,9 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Generates HTML markup for a single line of code while determining alternating line style.
-	 * @param {Integer} lineNumber	Line number.
-	 * @param {String} code Line	HTML markup.
-	 * @return {String}				Returns HTML markup.
+	param {Integer} lineNumber	Line number.
+	param {String} code Line	HTML markup.
+	return {String}				Returns HTML markup.
 	 */
 	getLineHtml: function(lineIndex, lineNumber, code)
 	{
@@ -1415,9 +1415,9 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Generates HTML markup for line number column.
-	 * @param {String} code			Complete code HTML markup.
-	 * @param {Array} lineNumbers	Calculated line numbers.
-	 * @return {String}				Returns HTML markup.
+	param {String} code			Complete code HTML markup.
+	param {Array} lineNumbers	Calculated line numbers.
+	return {String}				Returns HTML markup.
 	 */
 	getLineNumbersHtml: function(code, lineNumbers)
 	{
@@ -1448,9 +1448,9 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Splits block of text into individual DIV lines.
-	 * @param {String} code			Code to highlight.
-	 * @param {Array} lineNumbers	Calculated line numbers.
-	 * @return {String}				Returns highlighted code in HTML form.
+	param {String} code			Code to highlight.
+	param {Array} lineNumbers	Calculated line numbers.
+	return {String}				Returns highlighted code in HTML form.
 	 */
 	getCodeLinesHtml: function(html, lineNumbers)
 	{
@@ -1503,9 +1503,9 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Finds all matches in the source code.
-	 * @param {String} code		Source code to process matches in.
-	 * @param {Array} matches	Discovered regex matches.
-	 * @return {String} Returns formatted HTML with processed mathes.
+	param {String} code		Source code to process matches in.
+	param {Array} matches	Discovered regex matches.
+	return {String} Returns formatted HTML with processed mathes.
 	 */
 	getMatchesHtml: function(code, matches)
 	{
@@ -1548,8 +1548,8 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Generates HTML markup for the whole syntax highlighter.
-	 * @param {String} code Source code.
-	 * @return {String} Returns HTML markup.
+	param {String} code Source code.
+	return {String} Returns HTML markup.
 	 */
 	getHtml: function(code)
 	{
@@ -1634,8 +1634,8 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Highlights the code and returns complete HTML.
-	 * @param {String} code     Code to highlight.
-	 * @return {Element}        Returns container DIV element with all markup.
+	param {String} code     Code to highlight.
+	return {Element}        Returns container DIV element with all markup.
 	 */
 	getDiv: function(code)
 	{
@@ -1665,7 +1665,7 @@ sh.Highlighter.prototype = {
 	 * Constructor isn't used for initialization so that nothing executes during necessary
 	 * `new SyntaxHighlighter.Highlighter()` call when setting up brush inheritence.
 	 *
-	 * @param {Hash} params Highlighter parameters.
+	param {Hash} params Highlighter parameters.
 	 */
 	init: function(params)
 	{
@@ -1684,8 +1684,8 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Converts space separated list of keywords into a regular expression string.
-	 * @param {String} str    Space separated keywords.
-	 * @return {String}       Returns regular expression string.
+	param {String} str    Space separated keywords.
+	return {String}       Returns regular expression string.
 	 */
 	getKeywords: function(str)
 	{
@@ -1699,7 +1699,7 @@ sh.Highlighter.prototype = {
 
 	/**
 	 * Makes a brush compatible with the `html-script` functionality.
-	 * @param {Object} regexGroup Object containing `left` and `right` regular expressions.
+	param {Object} regexGroup Object containing `left` and `right` regular expressions.
 	 */
 	forHtmlScript: function(regexGroup)
 	{

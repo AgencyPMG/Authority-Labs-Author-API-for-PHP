@@ -27,3 +27,12 @@ $a = new AuthorityLabsAuthor();
 //get a list of domains
 $domains = $a->getListOfDomains());
 print_r($domains);
+
+Authority Labs Author API client interface.
+
+package  Authority Labs Partner API PHP Library
+author   PMG, Chris Alvares <chris.alvares@pmg.co>, http://pmg.co
+license  http://creativecommons.org/licenses/MIT/ MIT
+link     https://github.com/kressaty/Authority-Labs-Partner-API-PHP-Library (pending)
+More documentation can be found at https://docs.google.com/View?id=dfjjgtqz_34f4kkw6jk
+
