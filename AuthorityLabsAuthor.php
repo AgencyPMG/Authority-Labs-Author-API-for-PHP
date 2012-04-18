@@ -17,6 +17,8 @@ class AuthorityLabsAuthor
 	protected $apikey = 'XXXXXXXXXXXXXXXXXX';
 	protected $password = '***********';
 	protected $subdomain = 'mysubdomain'; 
+	
+	public $debugMode = false; //setting this to true will return the raw XML
 
 
 	public function __construct($apikey=null, $password=null, $subdomain=null)
@@ -278,6 +280,7 @@ class AuthorityLabsAuthor
 			throw new AuthorityLabsAuthorException("AuthorityLabsAuthor failed with error " . curl_error($curl));
 			return;
 		}
+		if($this->debugMode) return $result;
 		
 		return $this->parseOutput($result);
 
